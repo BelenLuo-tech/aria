@@ -1,34 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# aria-ai
 
-## Getting Started
+版本号：v1.0.1
+aria-ai 通过提供不同的 AI 模型来帮助你提高学习、工作、生活的效率。 [Demo](https://aria-platform.top/)
 
-First, run the development server:
+## 下一步计划
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- [x] v1.0.1
+  优化：
+  1.代码优化
+  2.ui界面优化
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  BUG修复:
+  1.修复移动端vh高度显示问题。
+  2.修复safari浏览器提问报错问题
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [ ] v1.1.0
+  新功能：
+  1.添加 prompt 模版功能。
+  2.添加多话题功能。
+  3.添加版本发布记录功能。
+  4.添加需求接收功能
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+  优化：
+  1.UI美化
+- [ ] v1.3.0
+  优化：
+  1.性能优化
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# 提示
+二开请注明出处，

@@ -7,6 +7,7 @@ import type { ILocalMessage } from "./index.d";
 
 type IProps = {
   data: ILocalMessage;
+  loading: boolean;
 };
 
 const RenderAvatar = ({ isRobot }: { isRobot: boolean }) => {
@@ -17,20 +18,20 @@ const RenderAvatar = ({ isRobot }: { isRobot: boolean }) => {
   );
 };
 
-const RenderMessageItem = ({ data }: IProps) => {
+const RenderMessageItem = ({ data, loading }: IProps) => {
   const isRobot = data.role === "user";
 
   return (
     <li key={data.id} className={`flex${isRobot ? " justify-end" : ""}`}>
       {!isRobot ? <RenderAvatar isRobot={isRobot} /> : ""}
-      <MessageContent data={data} isRobot={isRobot} />
+      <MessageContent loading={loading} data={data} isRobot={isRobot} />
       {isRobot ? <RenderAvatar isRobot={isRobot} /> : ""}
     </li>
   );
 };
 
 export default function MessageList() {
-  const { messageList } = useMessage();
+  const { loading, messageList } = useMessage();
   const containerRef = useRef<any>(null);
 
   const handleScrollBottom = () => {
@@ -47,7 +48,7 @@ export default function MessageList() {
       if (clear) {
         clearTimeout(clear);
       }
-      
+
       clear = setTimeout(() => {
         if (oldScrollTop !== target.scrollHeight) {
           oldScrollTop = target.scrollHeight;
@@ -62,7 +63,7 @@ export default function MessageList() {
 
     return () => {
       const target = containerRef.current;
-      target.removeEventListener("DOMNodeInserted", () => {});
+      if (target) target.removeEventListener("DOMNodeInserted", () => {});
     };
   }, []);
 
@@ -73,8 +74,12 @@ export default function MessageList() {
         ref={containerRef}
       >
         <ul className="flex flex-col p-4 gap-5">
-          {messageList.map((item) => (
-            <RenderMessageItem key={item.id} data={item} />
+          {messageList.map((item, index) => (
+            <RenderMessageItem
+              loading={loading && index + 1 === messageList.length}
+              key={item.id}
+              data={item}
+            />
           ))}
         </ul>
       </div>

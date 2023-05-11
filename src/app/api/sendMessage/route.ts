@@ -27,7 +27,6 @@ export async function POST(req: Request) {
     const response = await postMessage(messages)
     return new Response(response.data)
   } catch (error: any) {
-    console.log(error)
     return new Error(error)
   }
 }
